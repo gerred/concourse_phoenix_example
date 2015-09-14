@@ -2,7 +2,8 @@ resources:
   - name: app
     type: git
     source:
-      uri: git@github.com:gerred/concourse_phoenix_example
+      uri: https://github.com/gerred/concourse_phoenix_example.git
+      branch: master
 
 jobs:
   - name: phoenix-unit

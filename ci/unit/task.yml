@@ -3,7 +3,6 @@ image: docker:///marcelocg/phoenix
 
 inputs:
 - name: app
-  path: .
 
 run:
-  path: ci/unit/run.sh
+  path: app/ci/unit/run.sh
