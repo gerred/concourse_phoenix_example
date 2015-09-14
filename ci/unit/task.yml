@@ -1,0 +1,9 @@
+platform: linux
+image: docker:///marcelocg/phoenix
+
+inputs:
+- name: app
+  path: .
+
+run:
+  path: ci/unit/run.sh

@@ -1,0 +1,13 @@
+resources:
+  - name: app
+    type: git
+    source:
+      uri: git@github.com:gerred/concourse_phoenix_example
+
+jobs:
+  - name: phoenix-unit
+    plan:
+      - get: app
+        trigger: true
+      - task: unit
+        file: ci/unit/task.yml

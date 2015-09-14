@@ -17,6 +17,7 @@ config :concourse_phoenix_example, ConcoursePhoenixExample.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
+  template: "template0",
   database: "concourse_phoenix_example_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
