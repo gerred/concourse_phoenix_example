@@ -11,4 +11,4 @@ jobs:
       - get: app
         trigger: true
       - task: unit
-        file: ci/unit/task.yml
+        file: app/ci/unit/task.yml
