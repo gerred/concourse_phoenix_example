@@ -28,4 +28,4 @@ jobs:
         file: app/ci/build/task.yml
       - put: release
         params:
-          from: /concourse_phoenix_example_(.*).tar.gz
+          from: concourse_phoenix_example_(.*).tar.gz
