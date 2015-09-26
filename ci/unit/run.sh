@@ -6,4 +6,4 @@ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with passw
 
 mix deps.get
 mix ecto.create
-mix test
+MIX_ENV=test mix test

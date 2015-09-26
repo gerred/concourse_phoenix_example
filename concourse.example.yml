@@ -1,0 +1,32 @@
+resources:
+  - name: app
+    type: git
+    source:
+      uri: https://github.com/gerred/concourse_phoenix_example.git
+      branch: master
+  - name: release
+    type: s3
+    source:
+      bucket: concur-release
+      regexp: concourse_phoenix_example_(.*).tar.gz
+      access_key_id: INSERT_KEY_HERE
+      secret_access_key: INSERT_SECRET_HERE
+
+jobs:
+  - name: phoenix-unit
+    plan:
+      - get: app
+        trigger: true
+      - task: unit
+        file: app/ci/unit/task.yml
+  - name: phoenix-release
+    plan:
+      - get: app
+        trigger: true
+        passed: [phoenix-unit]
+      - task: build-release
+        file: app/ci/build/task.yml
+      - put: release
+        params:
+          globs:
+            - /concourse_phoenix_example_(.*).tar.gz
