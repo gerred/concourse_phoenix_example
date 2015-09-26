@@ -59,3 +59,14 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 # import_config "prod.secret.exs"
+config :concourse_phoenix_example, ConcoursePhoenixExample.Endpoint,
+  secret_key_base: "secret_key_example"
+
+# Configure your database
+config :concourse_phoenix_example, ConcoursePhoenixExample.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  template: "template0",
+  database: "concourse_phoenix_example_prod",
+  pool_size: 20
